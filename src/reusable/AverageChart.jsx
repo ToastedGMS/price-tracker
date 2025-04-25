@@ -3,7 +3,14 @@ import { useQuery } from '@tanstack/react-query';
 import getAveragePrices from '../utils/getAveragePrices.js';
 import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+import {
+	LineChart,
+	Line,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	Tooltip,
+} from 'recharts';
 
 const AverageChart = ({ type }) => {
 	const { isLoading, isError, data, error } = useQuery({
@@ -45,6 +52,14 @@ const AverageChart = ({ type }) => {
 							}
 						/>
 						<YAxis dataKey="price" />
+						<Tooltip
+							formatter={(value, name, props) => {
+								return [`R$ ${value}`, 'Price'];
+							}}
+							labelFormatter={(label) => {
+								return format(new Date(label), 'dd/MM/yyyy');
+							}}
+						/>
 					</LineChart>
 				</div>
 			) : (
