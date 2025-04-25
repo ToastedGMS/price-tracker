@@ -14,7 +14,7 @@ import {
 
 const AverageChart = ({ type }) => {
 	const { isLoading, isError, data, error } = useQuery({
-		queryKey: ['averagePrices', type], // Add `type` to the query key for caching purposes
+		queryKey: ['averagePrices', type],
 		queryFn: () => getAveragePrices(type),
 	});
 
