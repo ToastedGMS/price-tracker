@@ -1,7 +1,7 @@
 const serverUrl = import.meta.env.VITE_SERVER_URL;
-export default async function getAllPrices() {
+export default async function getAveragePrices(type) {
 	try {
-		const response = await fetch(`${serverUrl}/history`, {
+		const response = await fetch(`${serverUrl}/average?type=${type}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export default async function getAllPrices() {
 		const data = await response.json();
 		return data;
 	} catch (error) {
-		console.error('Error fetching all prices:', error);
-		throw new Error('Failed to fetch all prices');
+		console.error('Error fetching average prices:', error);
+		throw new Error('Failed to fetch average prices');
 	}
 }

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient();
 import Error from './pages/Error';
 import Home from './pages/Home';
+import AveragePrices from './pages/AveragePrices';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
 				<Routes>
 					<Route index element={<Home />} />
 					<Route path="*" element={<Error />} />
+					<Route path="/average-prices" element={<AveragePrices />} />
 				</Routes>
 			</BrowserRouter>
 		</QueryClientProvider>
