@@ -7,6 +7,7 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import AveragePrices from './pages/AveragePrices';
 import Layout from './pages/Layout';
+import PricesPerMarket from './pages/PricesPerMarket';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
 						<Route index element={<Home />} />
 						<Route path="*" element={<Error />} />
 						<Route path="/average-prices" element={<AveragePrices />} />
+						<Route path="/prices-per-market" element={<PricesPerMarket />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
