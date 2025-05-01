@@ -10,7 +10,10 @@ const Layout = () => {
 						<Link to="/">Home</Link>
 					</li>
 					<li>
-						<Link to="/average-prices">Average Prices</Link>
+						<Link to="/average-prices">Médias Diárias</Link>
+					</li>
+					<li>
+						<Link to="/prices-per-market">Preços por mercado</Link>
 					</li>
 				</ul>
 			</header>
@@ -18,7 +21,7 @@ const Layout = () => {
 				<Outlet />
 			</main>
 			<footer>
-				<p>&copy; {new Date().getFullYear()} My App</p>
+				<p>&copy; {new Date().getFullYear()} preçoRadar / Gabriel Siqueira</p>
 			</footer>
 		</div>
 	);
