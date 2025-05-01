@@ -56,10 +56,12 @@ const PricePerMarketChart = ({ type, market }) => {
 	const allPrices = chartData.flatMap((entry) =>
 		Object.values(entry).filter((value) => typeof value === 'number')
 	);
-	const minPrice = Math.min(...allPrices) - 2;
-	const maxPrice = Math.max(...allPrices) + 2;
 
-	console.log('chartData', chartData);
+	const roundedPrices = allPrices.map((price) => parseFloat(price.toFixed(2)));
+
+	const minPrice = Math.min(...roundedPrices) - 2;
+	const maxPrice = Math.max(...roundedPrices) + 2;
+
 	return (
 		<div>
 			<h2>
