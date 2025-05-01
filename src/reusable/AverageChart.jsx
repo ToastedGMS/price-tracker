@@ -10,6 +10,7 @@ import {
 	XAxis,
 	YAxis,
 	Tooltip,
+	Legend,
 } from 'recharts';
 
 const AverageChart = ({ type }) => {
@@ -31,7 +32,12 @@ const AverageChart = ({ type }) => {
 		<div>
 			{averageData.length > 0 ? (
 				<div key={averageData[0].id}>
-					<h2>Average {data.type} prices</h2>
+					<h2>
+						Preço médio diário para{' '}
+						{(data.type === 'cafe' && 'café') ||
+							(data.type === 'feijao' && 'feijão') ||
+							data.type}
+					</h2>
 					<LineChart
 						width={600}
 						height={300}
@@ -43,8 +49,21 @@ const AverageChart = ({ type }) => {
 							dataKey="price"
 							stroke="#000000"
 							activeDot={{ r: 8 }}
+							label={({ x, y, value }) => {
+								return (
+									<text
+										x={x}
+										y={y + 25}
+										fill="#222"
+										fontWeight={900}
+										textAnchor="middle"
+									>
+										{`R$ ${value.toFixed(2)}`}
+									</text>
+								);
+							}}
 						/>
-						<CartesianGrid stroke="#ccc" />
+						<CartesianGrid stroke="#eef" />
 						<XAxis
 							dataKey="date"
 							tickFormatter={(date) =>
