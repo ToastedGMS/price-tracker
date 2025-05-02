@@ -9,6 +9,7 @@ import AveragePrices from './pages/AveragePrices';
 import Layout from './pages/Layout';
 import PricesPerMarket from './pages/PricesPerMarket';
 import PricesPerBrand from './pages/PricesPerBrand';
+import LatestPrices from './pages/LatestPrices';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
 						<Route path="/average-prices" element={<AveragePrices />} />
 						<Route path="/prices-per-market" element={<PricesPerMarket />} />
 						<Route path="/prices-per-brand" element={<PricesPerBrand />} />
+						<Route path="/latest-prices" element={<LatestPrices />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
