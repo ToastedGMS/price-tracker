@@ -19,7 +19,7 @@ export default async function getPricesWithFilters(filters) {
 		const data = await response.json();
 		return data;
 	} catch (error) {
-		console.error('Error fetching average prices:', error);
-		throw new Error('Failed to fetch average prices');
+		console.error('Error fetching prices:', error, error.message);
+		throw new Error('Failed to fetch prices');
 	}
 }
