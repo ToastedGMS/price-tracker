@@ -15,6 +15,9 @@ const Layout = () => {
 					<li>
 						<Link to="/prices-per-market">Preços por mercado</Link>
 					</li>
+					<li>
+						<Link to="/prices-per-brand">Preços por marca</Link>
+					</li>
 				</ul>
 			</header>
 			<main>
