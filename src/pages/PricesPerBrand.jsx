@@ -10,10 +10,14 @@ const PricesPerBrand = () => {
 	}
 	return (
 		<div className={styles.container}>
+			<h2>Preços por marca, englobando todos os mercados¹.</h2>
 			<FilterChartForm onSubmit={onSubmit} />
 			{chartState && (
 				<PricePerBrandChart type={chartState.type} brand={chartState.brand} />
 			)}
+			<p>
+				¹ Todas as marcas disponíveis nos sites dos mercados salvos no sistema.
+			</p>
 		</div>
 	);
 };
