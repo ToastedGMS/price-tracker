@@ -1,12 +1,13 @@
 import AverageChart from '../reusable/AverageChart.jsx';
+import styles from './stylesheets/AveragePrices.module.css';
 
 const AveragePrices = () => {
 	return (
-		<div>
-			<p>
+		<div className={styles.container}>
+			<h2>
 				Médias diárias de preços por tipo de produto, englobando todos os
 				mercados¹ e todas as marcas².
-			</p>
+			</h2>
 			<AverageChart type="cafe" />
 			<AverageChart type="feijao" />
 			<AverageChart type="arroz" />
