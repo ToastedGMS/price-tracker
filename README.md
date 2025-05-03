@@ -1,12 +1,85 @@
-# React + Vite
+# 📊 PreçoRadar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**PreçoRadar** is a personal portfolio project that tracks and displays the prices of essential goods from various supermarkets in Belo Horizonte, Brazil. It provides historical pricing data in a clean and minimal interface.
 
-Currently, two official plugins are available:
+This project is split into two parts:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Backend**: Scrapes and stores product prices, and serves a REST API.
+- **Frontend**: Presents this data through a modern, minimal UI.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 Motivation
+
+PreçoRadar was inspired by the need for reliable data on the cost of living in Brazil. In response to misinformation and political discourse, it aims to deliver clear, verifiable price history — straight from the source.
+
+---
+
+## 🏗️ Tech Stack
+
+### Frontend
+
+- **React** (Vite)
+- **CSS Modules**
+- **TanStack Query**
+- **Date-fns**
+
+### Backend
+
+- **Node.js**
+- **Express**
+- **Puppeteer** (scraping)
+- **PostgreSQL**
+- **Prisma ORM**
+
+---
+
+## 🖼️ Features
+
+### ✅ Frontend
+
+- View **latest prices**
+- View **daily average prices**
+- Filter by **market**, **brand**, or **product**
+- Clean and responsive layout
+
+### ✅ Backend
+
+- Automated scraping of multiple real supermarkets
+- Stores full price history
+- Clean and modular architecture
+- REST API to access data
+
+---
+
+## 🌐 Sample API Endpoints
+
+- `GET /api/prices/latest`
+- `GET /api/prices/averages`
+- `GET /api/prices?market=supernosso&type=feijao`
+
+---
+
+## 📈 Roadmap Ideas
+
+- Charts to visualize trends over time
+- User subscriptions and notifications
+- Expand coverage to more Brazilian regions
+- Public documentation for external API access
+
+---
+
+## 🙋 About the Developer
+
+Hi! I'm a self-taught web developer and this is intended to be a full-stack portfolio project. I'm passionate about using technology to bring transparency to important topics, and to solve real world problems.
+
+Feel free to check out more of my work or connect:
+
+- [GitHub](https://github.com/ToastedGMS)
+- [LinkedIn](https://www.linkedin.com/in/gabriel-siqueira-5256111ab/)
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
