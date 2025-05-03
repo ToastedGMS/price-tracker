@@ -59,8 +59,8 @@ const PricePerMarketChart = ({ type, market }) => {
 
 	const roundedPrices = allPrices.map((price) => parseFloat(price.toFixed(2)));
 
-	const minPrice = Math.min(...roundedPrices) - 2;
-	const maxPrice = Math.max(...roundedPrices) + 2;
+	const minPrice = Math.min(...roundedPrices) - 3;
+	const maxPrice = Math.max(...roundedPrices) + 3;
 
 	return (
 		<div>
@@ -94,9 +94,16 @@ const PricePerMarketChart = ({ type, market }) => {
 				<XAxis dataKey="date" />
 				<YAxis domain={[minPrice, maxPrice]} />
 				<Tooltip />
-				<Legend formatter={(value) => value.replaceAll('_', ' ')} />
+				<Legend
+					formatter={
+						(value) =>
+							value
+								.replaceAll('_', ' ') // Replace underscores with spaces
+								.replace(/^./, (str) => str.toUpperCase()) // Capitalize the first letter
+					}
+				/>
 			</LineChart>
-			<p>
+			<p style={{ width: '600px' }}>
 				¹Preços são atualizados sempre que há uma mudança. Se o preço aparecer
 				com data "desatualizada", é porque não houve mudança no valor do produto
 				desde a data informada.

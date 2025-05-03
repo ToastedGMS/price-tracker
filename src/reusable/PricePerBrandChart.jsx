@@ -96,7 +96,7 @@ const PricePerBrandChart = ({ type, brand }) => {
 				<Tooltip />
 				<Legend formatter={(value) => value.replaceAll('_', ' ')} />
 			</LineChart>
-			<p>
+			<p style={{ width: '600px' }}>
 				¹Preços são atualizados sempre que há uma mudança. Se o preço aparecer
 				com data "desatualizada", é porque não houve mudança no valor do produto
 				desde a data informada.

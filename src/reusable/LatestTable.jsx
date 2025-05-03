@@ -122,7 +122,7 @@ const LatestTable = ({ type }) => {
 				</tbody>
 			</table>
 
-			<p>
+			<p style={{ width: '600px' }}>
 				¹Preços são atualizados sempre que há uma mudança. Se a data aparecer
 				"desatualizada", é porque não houve mudança no valor do produto desde a
 				data informada.
