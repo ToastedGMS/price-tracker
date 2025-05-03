@@ -1,0 +1,34 @@
+@keyframes gradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.hero {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(-45deg, #81ef59, #0f2f63, #81ef59, #0f2f63);
+	background-size: 400% 400%;
+	animation: gradientShift 15s ease infinite;
+}
+
+.hero h1 {
+	font-size: 4rem;
+	color: #222222;
+	margin-bottom: 0;
+}
+
+.btnContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1em;
+}
