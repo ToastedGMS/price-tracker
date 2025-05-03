@@ -13,6 +13,10 @@ header {
 	max-width: 8em;
 }
 
+header > img:hover {
+	cursor: pointer;
+}
+
 header > ul {
 	list-style: none;
 	display: flex;
