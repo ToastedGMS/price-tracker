@@ -90,7 +90,7 @@ const PricePerMarketChart = ({ type, market }) => {
 						);
 					return null;
 				})}
-				<CartesianGrid stroke="#eef" />
+				<CartesianGrid stroke="#42A5F5" />
 				<XAxis dataKey="date" />
 				<YAxis domain={[minPrice, maxPrice]} />
 				<Tooltip />

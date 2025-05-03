@@ -63,7 +63,7 @@ const AverageChart = ({ type }) => {
 								);
 							}}
 						/>
-						<CartesianGrid stroke="#eef" />
+						<CartesianGrid stroke="#42A5F5" />
 						<XAxis
 							dataKey="date"
 							tickFormatter={(date) =>
