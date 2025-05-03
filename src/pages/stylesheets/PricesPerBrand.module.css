@@ -1,0 +1,10 @@
+.container {
+	border-top: 6em solid #e6f0fa;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #e6f0fa;
+	height: 80vh;
+}

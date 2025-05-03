@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PricePerBrandChart from '../reusable/PricePerBrandChart';
 import FilterChartForm from '../reusable/FilterChartForm';
+import styles from './stylesheets/PricesPerBrand.module.css';
 
 const PricesPerBrand = () => {
 	const [chartState, setChartState] = useState(null);
@@ -8,7 +9,7 @@ const PricesPerBrand = () => {
 		setChartState({ type: values.productType, brand: values.brand });
 	}
 	return (
-		<div>
+		<div className={styles.container}>
 			<FilterChartForm onSubmit={onSubmit} />
 			{chartState && (
 				<PricePerBrandChart type={chartState.type} brand={chartState.brand} />
