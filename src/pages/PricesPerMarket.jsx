@@ -1,9 +1,10 @@
 import React from 'react';
 import PricePerMarketChart from '../reusable/PricePerMarketChart';
+import styles from './stylesheets/PricesPerMarket.module.css';
 
 const PricesPerMarket = () => {
 	return (
-		<div>
+		<div className={styles.container}>
 			<PricePerMarketChart type="cafe" market="Apoio Mineiro" />
 			<PricePerMarketChart type="cafe" market="Carrefour" />
 			<PricePerMarketChart type="cafe" market="Villefort" />
