@@ -69,7 +69,7 @@ const PricePerBrandChart = ({ type, brand }) => {
 				{(type === 'cafe' && ' café') ||
 					(type === 'feijao' && ' feijão') ||
 					` ${type}`}{' '}
-				da marca {brand}:
+				da marca {brand}¹:
 			</h2>
 			<LineChart
 				width={600}
@@ -96,6 +96,11 @@ const PricePerBrandChart = ({ type, brand }) => {
 				<Tooltip />
 				<Legend formatter={(value) => value.replaceAll('_', ' ')} />
 			</LineChart>
+			<p>
+				¹Preços são atualizados sempre que há uma mudança. Se o preço aparecer
+				com data "desatualizada", é porque não houve mudança no valor do produto
+				desde a data informada.
+			</p>
 		</div>
 	);
 };
