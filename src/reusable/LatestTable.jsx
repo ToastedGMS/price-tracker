@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import getPricesWithFilters from '../utils/getPricesWithFilters';
 import { format } from 'date-fns';
+import styles from './stylesheets/LatestTable.module.css';
 
 const LatestTable = ({ type }) => {
 	const [tableData, setTableData] = useState([]);
@@ -65,45 +66,36 @@ const LatestTable = ({ type }) => {
 	if (isError) return <div>Error: {error.message}</div>;
 
 	return (
-		<div>
-			<h2>
+		<div className={styles.container}>
+			<h2 className={styles.title}>
 				Tabela de preços mais recentes para{' '}
 				{(type === 'cafe' && ' café') ||
 					(type === 'feijao' && ' feijão') ||
 					` ${type}`}
 			</h2>
 
-			<table>
-				<thead>
+			<table className={styles.table}>
+				<thead className={styles.thead}>
 					<tr>
 						<th>#</th>
-						<th
-							onClick={() => handleSort('produto')}
-							style={{ cursor: 'pointer' }}
-						>
+						<th onClick={() => handleSort('produto')}>
 							Produto{' '}
 							{sortBy === 'produto' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}
 						</th>
-						<th
-							onClick={() => handleSort('market')}
-							style={{ cursor: 'pointer' }}
-						>
+						<th onClick={() => handleSort('market')}>
 							Mercado{' '}
 							{sortBy === 'market' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}
 						</th>
-						<th
-							onClick={() => handleSort('price')}
-							style={{ cursor: 'pointer' }}
-						>
+						<th onClick={() => handleSort('price')}>
 							Preço{' '}
 							{sortBy === 'price' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}
 						</th>
 						<th>Data de gravação¹</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody className={styles.tbody}>
 					{tableData.map((row, index) => (
-						<tr key={index}>
+						<tr key={index} className={styles.row}>
 							<td>{index + 1}</td>
 							<td>{row.produto}</td>
 							<td>{row.market}</td>
