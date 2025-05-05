@@ -34,19 +34,21 @@ const Layout = () => {
 				<Outlet />
 			</main>
 			<footer>
-				<p>&copy; {new Date().getFullYear()} preçoRadar / Gabriel Siqueira</p>
-				<a
-					style={{ textDecoration: 'none', color: 'white' }}
-					href="https://github.com/ToastedGMS"
-				>
-					My Github
-				</a>
-				<a
-					style={{ textDecoration: 'none', color: 'white' }}
-					href="https://www.linkedin.com/in/gabriel-siqueira-5256111ab/"
-				>
-					My LinkedIn
-				</a>
+				<div className={styles.footer}>
+					<p>&copy; {new Date().getFullYear()} preçoRadar / Gabriel Siqueira</p>
+					<div>
+						<a
+							style={{ textDecoration: 'none', color: 'white' }}
+							href="https://github.com/ToastedGMS"
+							className="fa-brands fa-github"
+						></a>
+						<a
+							style={{ textDecoration: 'none', color: 'white' }}
+							href="https://www.linkedin.com/in/gabriel-siqueira-5256111ab/"
+							className="fa-brands fa-linkedin"
+						></a>
+					</div>
+				</div>
 			</footer>
 		</div>
 	);

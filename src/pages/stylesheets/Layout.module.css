@@ -2,15 +2,21 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: transparent;
+	background-color: #e6f0fa;
 	z-index: 99;
 	position: fixed;
 	width: 100%;
 	top: 0;
+	padding: 0 0 0.5em 0;
+	box-shadow: 0px 1px 6px #2222228f;
 }
 
 .logo {
 	max-width: 8em;
+}
+
+header > img {
+	margin-left: 1em;
 }
 
 header > img:hover {
@@ -45,6 +51,17 @@ footer {
 	color: #ffffff;
 }
 
-footer > * {
-	margin: 0;
+.footer {
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+.footer > div {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.footer > div > a {
+	margin-bottom: 0.2em;
+	font-size: 2rem;
 }
