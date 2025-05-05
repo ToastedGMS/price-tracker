@@ -66,6 +66,12 @@ const Layout = () => {
 						>
 							<Link to="/latest-prices">Preços mais recentes</Link>
 						</li>
+						<li
+							style={{ display: transparent === 'true' ? 'none' : 'block' }}
+							onClick={() => settransparent('true')}
+						>
+							<Link to="/about-us">Sobre nós</Link>
+						</li>
 					</div>
 				</ul>
 			</header>
