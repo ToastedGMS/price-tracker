@@ -1,30 +1,69 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import styles from './stylesheets/Layout.module.css';
 
 const Layout = () => {
 	const navigate = useNavigate();
+	const [transparent, settransparent] = useState('true');
+	useEffect(() => {
+		if (transparent === 'false') {
+			setTimeout(() => {
+				settransparent('true');
+			}, 5000);
+		}
+	}, [transparent]);
 	return (
 		<div>
-			<header>
+			<header
+				style={{
+					height: transparent != 'true' && 'fit-content',
+					flexDirection: transparent != 'true' && 'column',
+					alignItems: transparent != 'true' && 'center',
+					justifyContent: transparent != 'true' && 'center',
+				}}
+			>
 				<img
 					className={styles.logo}
 					onClick={() => navigate('/')}
+					style={{ display: transparent === 'true' ? 'block' : 'none' }}
 					src="/preçoRadar-LOGO.png"
 					alt="Logotipo do site que mostra um carrinho de supermercado com um sinal sendo emitido dele."
 				/>
 				<ul>
 					<div className={styles.navbar}>
-						<li>
+						<i
+							style={{ display: transparent === 'true' ? 'block' : 'none' }}
+							onClick={() => {
+								if (transparent === 'true') {
+									settransparent('false');
+								} else {
+									settransparent('true');
+								}
+							}}
+							class="fa-solid fa-bars"
+						></i>
+						<li
+							style={{ display: transparent === 'true' ? 'none' : 'block' }}
+							onClick={() => settransparent('true')}
+						>
 							<Link to="/average-prices">Médias Diárias</Link>
 						</li>
-						<li>
+						<li
+							style={{ display: transparent === 'true' ? 'none' : 'block' }}
+							onClick={() => settransparent('true')}
+						>
 							<Link to="/prices-per-market">Preços por mercado</Link>
 						</li>
-						<li>
+						<li
+							style={{ display: transparent === 'true' ? 'none' : 'block' }}
+							onClick={() => settransparent('true')}
+						>
 							<Link to="/prices-per-brand">Preços por marca</Link>
 						</li>
-						<li>
+						<li
+							style={{ display: transparent === 'true' ? 'none' : 'block' }}
+							onClick={() => settransparent('true')}
+						>
 							<Link to="/latest-prices">Preços mais recentes</Link>
 						</li>
 					</div>
