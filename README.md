@@ -11,7 +11,7 @@ This project is split into two parts:
 
 ## 🧠 Motivation
 
-PreçoRadar was inspired by the need for reliable data on the cost of living in Brazil. In response to misinformation and political discourse, it aims to deliver clear, verifiable price history — straight from the source.
+PreçoRadar was inspired by the need for reliable data on the cost of living in Brazil. In response to misinformation and political discourse, it aims to deliver clear, verifiable price history — straight from the source. By tracking essential goods like coffee, rice, and beans, PreçoRadar provides transparency in pricing, empowering consumers, journalists, and analysts to make informed decisions.
 
 ---
 
@@ -32,46 +32,53 @@ PreçoRadar was inspired by the need for reliable data on the cost of living in 
 - **PostgreSQL**
 - **Prisma ORM**
 
+### Deployment
+
+- **Railway** (for hosting and quick interactions between front-end, back-end, and database)
+
 ---
 
 ## 🖼️ Features
 
 ### ✅ Frontend
 
-- View **latest prices**
+- View **latest prices** for essential goods
 - View **daily average prices**
 - Filter by **market**, **brand**, or **product**
-- Clean and responsive layout
+- Clean and responsive layout optimized for mobile devices
+- Interactive **charts** to visualize price trends over time
 
 ### ✅ Backend
 
-- Automated scraping of multiple real supermarkets
-- Stores full price history
-- Clean and modular architecture
-- REST API to access data
+- **Automated scraping** of real supermarket data (e.g., Supernosso, Apoio Mineiro, Carrefour)
+- **Stores full price history** for comparison and analysis
+- **Clean and modular architecture** for easy updates and scalability
+- REST API for data access, including endpoints for price tracking and analysis
 
 ---
 
 ## 🌐 Sample API Endpoints
 
-- `GET /api/prices/latest`
-- `GET /api/prices/averages`
-- `GET /api/prices?market=supernosso&type=feijao`
+- `GET /api/prices/latest` — Fetch the latest prices of all tracked products.
+- `GET /api/prices/averages` — Retrieve average prices for products across different supermarkets.
+- `GET /api/prices?market=carrefour&type=feijao` — Get prices of a specific product (e.g., beans) at a specific supermarket (e.g., Supernosso).
 
 ---
 
 ## 📈 Roadmap Ideas
 
-- Charts to visualize trends over time
-- User subscriptions and notifications
-- Expand coverage to more Brazilian regions
-- Public documentation for external API access
+- Expand coverage to include more Brazilian regions
+- User **subscriptions** for price change notifications
+- Add more product categories (e.g., dairy, beverages)
+- Enhance public documentation for external API access
 
 ---
 
-## 🙋 About the Developer
+## 🏆 Developer's Note
 
-Hi! I'm a self-taught web developer and this is intended to be a full-stack portfolio project. I'm passionate about using technology to bring transparency to important topics, and to solve real world problems.
+Hi! I'm a self-taught web developer and this project showcases my full-stack capabilities. PreçoRadar was created not only to demonstrate technical proficiency, but also to promote transparency and tackle misinformation around the cost of living in Brazil.
+
+The project utilizes modern technologies like **React**, **TanStack Query**, **Express**, and **PostgreSQL**. I also tackled real-world challenges like scraping unreliable APIs, handling data for multiple markets, and automating daily price collection.
 
 Feel free to check out more of my work or connect:
 
