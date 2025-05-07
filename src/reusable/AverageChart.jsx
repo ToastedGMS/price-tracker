@@ -4,6 +4,7 @@ import getAveragePrices from '../utils/getAveragePrices.js';
 import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import {
+	ResponsiveContainer,
 	LineChart,
 	Line,
 	CartesianGrid,
@@ -12,6 +13,7 @@ import {
 	Tooltip,
 	Legend,
 } from 'recharts';
+import styles from './stylesheets/AverageChart.module.css'; // 👈 create this
 
 const AverageChart = ({ type }) => {
 	const { isLoading, isError, data, error } = useQuery({
@@ -28,59 +30,47 @@ const AverageChart = ({ type }) => {
 	}
 
 	const averageData = data?.averagePrice || [];
+
 	return (
-		<div>
+		<div className={styles.chartWrapper}>
 			{averageData.length > 0 ? (
-				<div key={averageData[0].id}>
-					<h2>
+				<>
+					<h3 className={styles.chartTitle}>
 						Preço médio diário para{' '}
 						{(data.type === 'cafe' && 'café') ||
 							(data.type === 'feijao' && 'feijão') ||
 							data.type}
-					</h2>
-					<LineChart
-						width={600}
-						height={300}
-						data={averageData}
-						margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-					>
-						<Line
-							type="monotone"
-							dataKey="price"
-							stroke="#000000"
-							activeDot={{ r: 8 }}
-							label={({ x, y, value }) => {
-								return (
-									<text
-										x={x}
-										y={y + 25}
-										fill="#222"
-										fontWeight={900}
-										textAnchor="middle"
-									>
-										{`R$ ${value.toFixed(2)}`}
-									</text>
-								);
-							}}
-						/>
-						<CartesianGrid stroke="#42A5F5" />
-						<XAxis
-							dataKey="date"
-							tickFormatter={(date) =>
-								format(toZonedTime(date, 'UTC'), 'dd/MM/yyyy')
-							}
-						/>
-						<YAxis dataKey="price" />
-						<Tooltip
-							formatter={(value, name, props) => {
-								return [`R$ ${value}`, 'Price'];
-							}}
-							labelFormatter={(label) => {
-								return format(new Date(label), 'dd/MM/yyyy');
-							}}
-						/>
-					</LineChart>
-				</div>
+					</h3>
+					<div className={styles.chartContainer}>
+						<ResponsiveContainer width="100%" height={300}>
+							<LineChart
+								data={averageData}
+								margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+							>
+								<Line
+									type="monotone"
+									dataKey="price"
+									stroke="#000000"
+									activeDot={{ r: 8 }}
+								/>
+								<CartesianGrid stroke="#42A5F5" />
+								<XAxis
+									dataKey="date"
+									tickFormatter={(date) =>
+										format(toZonedTime(date, 'UTC'), 'dd/MM')
+									}
+								/>
+								<YAxis dataKey="price" />
+								<Tooltip
+									formatter={(value) => [`R$ ${value}`, 'Preço']}
+									labelFormatter={(label) =>
+										format(new Date(label), 'dd/MM/yyyy')
+									}
+								/>
+							</LineChart>
+						</ResponsiveContainer>
+					</div>
+				</>
 			) : (
 				<div>No data available for {data?.type}.</div>
 			)}
