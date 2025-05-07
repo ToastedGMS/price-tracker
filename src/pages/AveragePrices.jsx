@@ -4,7 +4,7 @@ import styles from './stylesheets/AveragePrices.module.css';
 const AveragePrices = () => {
 	return (
 		<div className={styles.container}>
-			<h2>
+			<h2 className={styles.description}>
 				Médias diárias de preços por tipo de produto, englobando todos os
 				mercados¹ e todas as marcas².
 			</h2>
