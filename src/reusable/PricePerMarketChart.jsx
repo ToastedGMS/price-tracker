@@ -4,6 +4,7 @@ import { format, parse } from 'date-fns';
 import getPricesWithFilters from '../utils/getPricesWithFilters.js';
 import generateRandomColor from '../utils/generateRandomColor.js';
 import {
+	ResponsiveContainer,
 	LineChart,
 	Line,
 	CartesianGrid,
@@ -12,6 +13,7 @@ import {
 	Tooltip,
 	Legend,
 } from 'recharts';
+import styles from './stylesheets/PricePerMarketChart.module.css';
 
 const PricePerMarketChart = ({ type, market }) => {
 	const filters = {};
@@ -39,76 +41,69 @@ const PricePerMarketChart = ({ type, market }) => {
 				const formattedDate = format(date, 'dd/MM/yyyy');
 
 				let entry = chartData.find((entry) => entry.date === formattedDate);
-
 				if (!entry) {
 					entry = { date: formattedDate };
 					chartData.push(entry);
 				}
-
 				entry[item.id] = price.price;
 			});
 		});
-
 		chartData.sort(
 			(a, b) =>
 				parse(a.date, 'dd/MM/yyyy', new Date()).getTime() -
 				parse(b.date, 'dd/MM/yyyy', new Date()).getTime()
-		); // compare dates by milliseconds (numerically sortable)
+		);
 	}
 
 	createChartData(data);
 	const allPrices = chartData.flatMap((entry) =>
 		Object.values(entry).filter((value) => typeof value === 'number')
 	);
-
 	const roundedPrices = allPrices.map((price) => parseFloat(price.toFixed(2)));
-
 	const minPrice = Math.min(...roundedPrices) - 3;
 	const maxPrice = Math.max(...roundedPrices) + 3;
 
 	return (
-		<div>
-			<h2>
+		<div className={styles.chartWrapper}>
+			<h3 className={styles.chartTitle}>
 				Preços de
 				{(type === 'cafe' && ' café') ||
 					(type === 'feijao' && ' feijão') ||
 					` ${type}`}{' '}
 				no {market}¹:
-			</h2>
-			<LineChart
-				width={600}
-				height={300}
-				data={chartData}
-				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-			>
-				{/* Dynamically create a Line for each product */}
-				{Object.keys(chartData[0]).map((key) => {
-					if (key !== 'date')
-						return (
-							<Line
-								type="monotone"
-								dataKey={key}
-								key={key}
-								stroke={generateRandomColor()}
-								connectNulls={true}
-							/>
-						);
-					return null;
-				})}
-				<CartesianGrid stroke="#42A5F5" />
-				<XAxis dataKey="date" />
-				<YAxis domain={[minPrice, maxPrice]} />
-				<Tooltip />
-				<Legend
-					formatter={
-						(value) =>
-							value
-								.replaceAll('_', ' ') // Replace underscores with spaces
-								.replace(/^./, (str) => str.toUpperCase()) // Capitalize the first letter
-					}
-				/>
-			</LineChart>
-			<p style={{ width: '600px' }}>
+			</h3>
+			<div className={styles.chartContainer}>
+				<ResponsiveContainer width="100%" height={300}>
+					<LineChart
+						data={chartData}
+						margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+					>
+						{Object.keys(chartData[0]).map((key) =>
+							key !== 'date' ? (
+								<Line
+									type="monotone"
+									dataKey={key}
+									key={key}
+									stroke={generateRandomColor()}
+									connectNulls={true}
+								/>
+							) : null
+						)}
+						<CartesianGrid stroke="#42A5F5" />
+						<XAxis dataKey="date" />
+						<YAxis domain={[minPrice, maxPrice]} />
+						<Tooltip />
+						<Legend
+							formatter={(value) =>
+								value
+									.replaceAll('_', ' ')
+									.replace(/^./, (str) => str.toUpperCase())
+							}
+						/>
+					</LineChart>
+				</ResponsiveContainer>
+			</div>
+			<p className={styles.chartNote}>
 				¹Preços são atualizados sempre que há uma mudança. Se o preço aparecer
 				com data "desatualizada", é porque não houve mudança no valor do produto
 				desde a data informada.

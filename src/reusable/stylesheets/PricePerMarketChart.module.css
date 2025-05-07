@@ -1,0 +1,26 @@
+.chartWrapper {
+	width: 100%;
+	max-width: 900px;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+.chartTitle {
+	font-size: 1.2rem;
+	text-align: center;
+	color: #222;
+	margin-bottom: 1em;
+}
+
+.chartContainer {
+	width: 100%;
+	height: auto;
+}
+
+.chartNote {
+	max-width: 700px;
+	margin: 1em auto 2em;
+	text-align: center;
+	font-size: 0.9rem;
+	color: #444;
+}
