@@ -40,7 +40,7 @@ const Layout = () => {
 									settransparent('true');
 								}
 							}}
-							class="fa-solid fa-bars"
+							className="fa-solid fa-bars"
 						></i>
 						<li
 							style={{ display: transparent === 'true' ? 'none' : 'block' }}
