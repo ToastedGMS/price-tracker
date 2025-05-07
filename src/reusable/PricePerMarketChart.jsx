@@ -57,12 +57,6 @@ const PricePerMarketChart = ({ type, market }) => {
 	}
 
 	createChartData(data);
-	const allPrices = chartData.flatMap((entry) =>
-		Object.values(entry).filter((value) => typeof value === 'number')
-	);
-	const roundedPrices = allPrices.map((price) => parseFloat(price.toFixed(2)));
-	const minPrice = Math.min(...roundedPrices) - 3;
-	const maxPrice = Math.max(...roundedPrices) + 3;
 
 	return (
 		<div className={styles.chartWrapper}>
@@ -100,7 +94,7 @@ const PricePerMarketChart = ({ type, market }) => {
 								)
 							}
 						/>
-						<YAxis domain={[minPrice, maxPrice]} />
+						<YAxis />
 						<Tooltip />
 						<Legend
 							formatter={(value) =>
