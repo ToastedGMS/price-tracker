@@ -12,6 +12,7 @@ import {
 	Tooltip,
 	Legend,
 } from 'recharts';
+import styles from './stylesheets/PricePerBrandChart.module.css';
 
 const PricePerBrandChart = ({ type, brand }) => {
 	const filters = {};
@@ -69,7 +70,7 @@ const PricePerBrandChart = ({ type, brand }) => {
 	const maxPrice = Math.max(...roundedPrices) + 2;
 
 	return (
-		<div>
+		<div className={styles.chartWrapper}>
 			<h2>
 				Preços de
 				{(type === 'cafe' && ' café') ||
@@ -78,7 +79,7 @@ const PricePerBrandChart = ({ type, brand }) => {
 				da marca {brand}¹:
 			</h2>
 			<LineChart
-				width={600}
+				width={window.innerWidth < 700 ? window.innerWidth - 40 : 600}
 				height={300}
 				data={chartData}
 				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -103,7 +104,7 @@ const PricePerBrandChart = ({ type, brand }) => {
 				<Tooltip />
 				<Legend formatter={(value) => value.replaceAll('_', ' ')} />
 			</LineChart>
-			<p style={{ width: '600px' }}>
+			<p>
 				¹Preços são atualizados sempre que há uma mudança. Se o preço aparecer
 				com data "desatualizada", é porque não houve mudança no valor do produto
 				desde a data informada.

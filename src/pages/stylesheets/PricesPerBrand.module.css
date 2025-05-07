@@ -6,5 +6,25 @@
 	justify-content: center;
 	align-items: center;
 	background-color: #e6f0fa;
-	height: 80vh;
+	padding: 2rem 1rem;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+.container h2,
+.container p {
+	max-width: 90%;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.container {
+		padding: 1rem;
+	}
+	.container h2,
+	.container p {
+		font-size: 1.2rem;
+	}
 }

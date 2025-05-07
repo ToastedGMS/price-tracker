@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './stylesheets/FilterChartForm.module.css';
 
 const brandOptions = {
 	cafe: [
@@ -44,7 +45,6 @@ const brandOptions = {
 	],
 };
 
-// Display label → internal value
 const productTypes = [
 	{ label: 'Café', value: 'cafe' },
 	{ label: 'Arroz', value: 'arroz' },
@@ -65,7 +65,7 @@ function FilterChartForm({ onSubmit }) {
 	const availableBrands = productType ? brandOptions[productType] : [];
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className={styles.formWrapper}>
 			<div>
 				<label>
 					Product Type:

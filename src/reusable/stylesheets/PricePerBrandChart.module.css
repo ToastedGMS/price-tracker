@@ -1,0 +1,35 @@
+.chartWrapper {
+	width: 100%;
+	max-width: 700px;
+	padding: 0 1rem;
+	margin: 0 auto;
+}
+
+.chartWrapper h2 {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.chartWrapper p {
+	width: 100%;
+	max-width: 700px;
+	margin: 1rem auto;
+	text-align: center;
+}
+
+.chartWrapper .recharts-wrapper {
+	width: 100%;
+	max-width: 700px;
+}
+
+@media (max-width: 768px) {
+	.chartWrapper {
+		padding: 0 0.5rem;
+	}
+	.chartWrapper h2 {
+		font-size: 1.2rem;
+	}
+	.chartWrapper p {
+		font-size: 1rem;
+	}
+}
