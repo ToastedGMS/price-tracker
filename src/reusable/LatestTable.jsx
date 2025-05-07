@@ -97,15 +97,15 @@ const LatestTable = ({ type }) => {
 				<tbody className={styles.tbody}>
 					{tableData.map((row, index) => (
 						<tr key={index} className={styles.row}>
-							<td>{index + 1}</td>
-							<td>{row.produto}</td>
-							<td>{row.market}</td>
-							<td>
+							<td data-label="#"> {index + 1} </td>
+							<td data-label="Produto"> {row.produto} </td>
+							<td data-label="Mercado"> {row.market} </td>
+							<td data-label="Preço">
 								{typeof row.price === 'number'
 									? `R$ ${row.price.toFixed(2)}`
 									: row.price}
 							</td>
-							<td>
+							<td data-label="Data de gravação">
 								{row.date !== 'Sem data'
 									? format(new Date(row.date), 'dd/MM/yyyy')
 									: row.date}
@@ -115,7 +115,7 @@ const LatestTable = ({ type }) => {
 				</tbody>
 			</table>
 
-			<p style={{ width: '600px' }}>
+			<p>
 				¹Preços são atualizados sempre que há uma mudança. Se a data aparecer
 				"desatualizada", é porque não houve mudança no valor do produto desde a
 				data informada.
