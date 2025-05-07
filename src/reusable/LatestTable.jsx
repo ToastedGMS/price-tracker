@@ -107,7 +107,7 @@ const LatestTable = ({ type }) => {
 							</td>
 							<td data-label="Data de gravação">
 								{row.date !== 'Sem data'
-									? format(new Date(row.date), 'dd/MM/yyyy')
+									? format(new Date(row.date), 'dd/MM')
 									: row.date}
 							</td>
 						</tr>
