@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 import getPricesWithFilters from '../utils/getPricesWithFilters.js';
 import generateRandomColor from '../utils/generateRandomColor.js';
 import {
@@ -49,6 +49,12 @@ const PricePerBrandChart = ({ type, brand }) => {
 				entry[item.id] = price.price;
 			});
 		});
+
+		chartData.sort(
+			(a, b) =>
+				parse(a.date, 'dd/MM/yyyy', new Date()).getTime() -
+				parse(b.date, 'dd/MM/yyyy', new Date()).getTime()
+		); // compare dates by milliseconds (numerically sortable)
 	}
 
 	createChartData(data);
@@ -86,6 +92,7 @@ const PricePerBrandChart = ({ type, brand }) => {
 								dataKey={key}
 								key={key}
 								stroke={generateRandomColor()}
+								connectNulls={true}
 							/>
 						);
 					return null;
