@@ -90,6 +90,7 @@ const PricePerMarketChart = ({ type, market }) => {
 								dataKey={key}
 								key={key}
 								stroke={generateRandomColor()}
+								connectNulls={true}
 							/>
 						);
 					return null;
