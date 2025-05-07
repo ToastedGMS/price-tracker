@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { format, parse } from 'date-fns';
+import { toZonedTime } from 'date-fns-tz';
 import getPricesWithFilters from '../utils/getPricesWithFilters.js';
 import generateRandomColor from '../utils/generateRandomColor.js';
 import {
@@ -90,7 +91,15 @@ const PricePerMarketChart = ({ type, market }) => {
 							) : null
 						)}
 						<CartesianGrid stroke="#42A5F5" />
-						<XAxis dataKey="date" />
+						<XAxis
+							dataKey="date"
+							tickFormatter={(date) =>
+								format(
+									toZonedTime(parse(date, 'dd/MM/yyyy', new Date()), 'UTC'),
+									'dd/MM'
+								)
+							}
+						/>
 						<YAxis domain={[minPrice, maxPrice]} />
 						<Tooltip />
 						<Legend
