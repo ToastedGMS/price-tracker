@@ -26,7 +26,7 @@ const Layout = () => {
 					className={styles.logo}
 					onClick={() => navigate('/')}
 					style={{ display: transparent === 'true' ? 'block' : 'none' }}
-					src="/preçoRadar-LOGO.png"
+					src="/preçoRadar-LOGO.webp"
 					alt="Logotipo do site que mostra um carrinho de supermercado com um sinal sendo emitido dele."
 				/>
 				<ul>
@@ -86,11 +86,13 @@ const Layout = () => {
 							style={{ textDecoration: 'none', color: 'white' }}
 							href="https://github.com/ToastedGMS"
 							className="fa-brands fa-github"
+							aria-label="GitHub Profile"
 						></a>
 						<a
 							style={{ textDecoration: 'none', color: 'white' }}
 							href="https://www.linkedin.com/in/gabriel-siqueira-5256111ab/"
 							className="fa-brands fa-linkedin"
+							aria-label="LinkedIn Profile"
 						></a>
 					</div>
 				</div>
