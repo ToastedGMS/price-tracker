@@ -118,7 +118,7 @@ const LatestTable = ({ type }) => {
 			<p>
 				¹Preços são atualizados sempre que há uma mudança. Se a data aparecer
 				"desatualizada", é porque não houve mudança no valor do produto desde a
-				data informada.
+				data informada. A checagem é realizada diariamente.
 			</p>
 		</div>
 	);

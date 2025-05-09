@@ -107,7 +107,7 @@ const PricePerBrandChart = ({ type, brand }) => {
 			<p>
 				¹Preços são atualizados sempre que há uma mudança. Se o preço aparecer
 				com data "desatualizada", é porque não houve mudança no valor do produto
-				desde a data informada.
+				desde a data informada. A checagem é realizada diariamente.
 			</p>
 		</div>
 	);
