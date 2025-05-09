@@ -58,6 +58,28 @@ const PricePerMarketChart = ({ type, market }) => {
 
 	createChartData(data);
 
+	// Calculate the number of products and the chart height
+	const productNames = new Set();
+	chartData.forEach((day) => {
+		Object.keys(day).forEach((key) => {
+			if (key !== 'date') {
+				// Skip the 'date' key
+				productNames.add(key);
+			}
+		});
+	});
+	const numberOfProducts = productNames.size;
+	const chartHeight = numberOfProducts * 50;
+
+	// Calculate the Y-axis min and max values
+	const allPrices = chartData.flatMap((entry) =>
+		Object.entries(entry)
+			.filter(([key]) => key !== 'date')
+			.map(([, value]) => value)
+	);
+	const yAxisMin = Math.floor(Math.min(...allPrices) - 1);
+	const yAxisMax = Math.ceil(Math.max(...allPrices) + 1);
+
 	return (
 		<div className={styles.chartWrapper}>
 			<h3 className={styles.chartTitle}>
@@ -68,43 +90,53 @@ const PricePerMarketChart = ({ type, market }) => {
 				no {market}¹:
 			</h3>
 			<div className={styles.chartContainer}>
-				<ResponsiveContainer width="100%" height={300}>
-					<LineChart
-						data={chartData}
-						margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-					>
-						{Object.keys(chartData[0]).map((key) =>
-							key !== 'date' ? (
-								<Line
-									type="monotone"
-									dataKey={key}
-									key={key}
-									stroke={generateRandomColor()}
-									connectNulls={true}
-								/>
-							) : null
-						)}
-						<CartesianGrid stroke="#42A5F5" />
-						<XAxis
-							dataKey="date"
-							tickFormatter={(date) =>
-								format(
-									toZonedTime(parse(date, 'dd/MM/yyyy', new Date()), 'UTC'),
-									'dd/MM'
-								)
-							}
-						/>
-						<YAxis />
-						<Tooltip />
-						<Legend
-							formatter={(value) =>
-								value
-									.replaceAll('_', ' ')
-									.replace(/^./, (str) => str.toUpperCase())
-							}
-						/>
-					</LineChart>
-				</ResponsiveContainer>
+				<div
+					style={{
+						width: '100%',
+						height: `${Math.max(chartHeight, 550)}px`,
+					}}
+					data-test={chartData.length}
+				>
+					<ResponsiveContainer width="100%" height="100%">
+						<LineChart
+							data={chartData}
+							margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+						>
+							{Object.keys(chartData[0]).map((key) =>
+								key !== 'date' ? (
+									<Line
+										type="monotone"
+										dataKey={key}
+										key={key}
+										stroke={generateRandomColor()}
+										connectNulls={true}
+									/>
+								) : null
+							)}
+							<CartesianGrid stroke="#42A5F5" />
+							<XAxis
+								dataKey="date"
+								tickFormatter={(date) =>
+									format(
+										toZonedTime(parse(date, 'dd/MM/yyyy', new Date()), 'UTC'),
+										'dd/MM'
+									)
+								}
+							/>
+							<YAxis domain={[yAxisMin, yAxisMax]} />
+							<Tooltip />
+							<Legend
+								verticalAlign="bottom"
+								wrapperStyle={{ marginTop: 10 }}
+								formatter={(value) =>
+									value
+										.replaceAll('_', ' ')
+										.replace(/^./, (str) => str.toUpperCase())
+								}
+							/>
+						</LineChart>
+					</ResponsiveContainer>
+				</div>
 			</div>
 			<p className={styles.chartNote}>
 				¹Preços são atualizados sempre que há uma mudança. Se o preço aparecer
