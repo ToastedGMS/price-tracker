@@ -7,8 +7,8 @@ const Home = () => {
 		<div className={styles.hero}>
 			<h1>PreçoRadar</h1>
 			<p>
-				Veja a evolução dos preços de produtos essenciais ao em mercados
-				populares de BH.
+				Veja a evolução dos preços de produtos essenciais em mercados populares
+				de BH.
 			</p>
 			<div className={styles.btnContainer}>
 				<HomepageBtn
