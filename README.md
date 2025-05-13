@@ -7,6 +7,8 @@ This project is split into two parts:
 - **Backend**: Scrapes and stores product prices, and serves a REST API.
 - **Frontend**: Presents this data through a modern, minimal UI.
 
+**Live Preview**(#https://price-tracker-production-6d73.up.railway.app/)
+
 ---
 
 ## 🧠 Motivation
