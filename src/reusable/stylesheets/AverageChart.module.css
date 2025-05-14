@@ -3,6 +3,11 @@
 	max-width: 900px;
 	padding: 1em;
 	box-sizing: border-box;
+	background: white;
+	border-radius: 16px;
+	padding: 1.5rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+	margin-bottom: 1em;
 }
 
 .chartTitle {

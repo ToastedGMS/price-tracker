@@ -13,7 +13,7 @@ import {
 	Tooltip,
 	Legend,
 } from 'recharts';
-import styles from './stylesheets/AverageChart.module.css'; // 👈 create this
+import styles from './stylesheets/AverageChart.module.css';
 
 const AverageChart = ({ type }) => {
 	const { isLoading, isError, data, error } = useQuery({
@@ -59,8 +59,9 @@ const AverageChart = ({ type }) => {
 									tickFormatter={(date) =>
 										format(toZonedTime(date, 'UTC'), 'dd/MM')
 									}
+									interval={2}
 								/>
-								<YAxis dataKey="price" />
+								<YAxis dataKey="price" interval={1} />
 								<Tooltip
 									formatter={(value) => [`R$ ${value}`, 'Preço']}
 									labelFormatter={(label) =>
