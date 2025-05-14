@@ -20,6 +20,8 @@ const Layout = () => {
 					flexDirection: transparent != 'true' && 'column',
 					alignItems: transparent != 'true' && 'center',
 					justifyContent: transparent != 'true' && 'center',
+					backgroundColor:
+						transparent != 'true' && '	 rgba(255, 255, 255, 0.55)',
 				}}
 			>
 				<div className={styles.headerContainer}>
