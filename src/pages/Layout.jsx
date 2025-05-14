@@ -22,13 +22,19 @@ const Layout = () => {
 					justifyContent: transparent != 'true' && 'center',
 				}}
 			>
-				<img
-					className={styles.logo}
-					onClick={() => navigate('/')}
-					style={{ display: transparent === 'true' ? 'block' : 'none' }}
-					src="/preçoRadar-LOGO.webp"
-					alt="Logotipo do site que mostra um carrinho de supermercado com um sinal sendo emitido dele."
-				/>
+				<div className={styles.headerContainer}>
+					<img
+						className={styles.logo}
+						onClick={() => navigate('/')}
+						style={{ display: transparent === 'true' ? 'block' : 'none' }}
+						src="/preçoRadar-LOGO.webp"
+						alt="Logotipo do site que mostra um carrinho de supermercado com um sinal sendo emitido dele."
+					/>
+					<h1 style={{ display: transparent === 'true' ? 'block' : 'none' }}>
+						PreçoRadar
+					</h1>
+				</div>
+
 				<ul>
 					<div className={styles.navbar}>
 						<i

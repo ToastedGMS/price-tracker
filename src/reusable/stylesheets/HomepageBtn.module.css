@@ -1,13 +1,13 @@
 .HomepageBtn {
-	background-color: #81ef59;
+	background-color: #96ee76;
 	color: #222222;
 	padding: 1em 2em;
 	border-radius: 50px;
 	border: 1px solid #0f2f63;
+	font-weight: bold;
 }
 
 .HomepageBtn:hover {
 	background-color: #5feb2c;
 	cursor: pointer;
-	outline: solid 2px #0f2f63;
 }
