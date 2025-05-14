@@ -1,11 +1,11 @@
 .container {
-	border-top: 6em solid #e6f0fa;
+	border-top: 6em solid transparent;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #e6f0fa;
+	background-color: #f9f9f6;
 	padding: 2rem 1rem;
 	min-height: 100vh;
 	box-sizing: border-box;
@@ -18,7 +18,6 @@
 	margin-bottom: 1rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
 	.container {
 		padding: 1rem;

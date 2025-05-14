@@ -22,7 +22,7 @@
 }
 
 .thead {
-	background-color: #f4f4f4;
+	background-color: #e2e2e2;
 }
 
 .thead th {
@@ -35,7 +35,7 @@
 }
 
 .thead th:hover {
-	background-color: #eaeaea;
+	background-color: #7a7979;
 }
 
 .tbody td {

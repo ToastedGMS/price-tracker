@@ -1,11 +1,19 @@
 .container {
-	border-top: 6em solid #e6f0fa;
+	border-top: 6em solid transparent;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #e6f0fa;
+	background-color: #f9f9f6;
 	padding: 1rem;
 	box-sizing: border-box;
+}
+.description {
+	max-width: 700px;
+	text-align: left;
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 2em;
+	margin: 0.5em auto;
 }

@@ -124,15 +124,30 @@ const PricePerMarketChart = ({ type, market }) => {
 								}
 							/>
 							<YAxis domain={[yAxisMin, yAxisMax]} />
-							<Tooltip />
+							<Tooltip
+								formatter={(value, name) => {
+									return [
+										value,
+										name
+											.replace(/_/g, ' ')
+											.split(' ')
+											.map(
+												(word) => word.charAt(0).toUpperCase() + word.slice(1)
+											)
+											.join(' '),
+									];
+								}}
+							/>
+
 							<Legend
 								verticalAlign="bottom"
 								wrapperStyle={{ marginTop: 10 }}
-								formatter={(value) =>
-									value
-										.replaceAll('_', ' ')
-										.replace(/^./, (str) => str.toUpperCase())
-								}
+								formatter={(value) => {
+									return value
+										.split('_')
+										.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+										.join(' ');
+								}}
 							/>
 						</LineChart>
 					</ResponsiveContainer>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { format, parse } from 'date-fns';
+import { toZonedTime } from 'date-fns-tz';
 import getPricesWithFilters from '../utils/getPricesWithFilters.js';
 import generateRandomColor from '../utils/generateRandomColor.js';
 import {
@@ -99,10 +100,38 @@ const PricePerBrandChart = ({ type, brand }) => {
 					return null;
 				})}
 				<CartesianGrid stroke="#42A5F5" />
-				<XAxis dataKey="date" />
+				<XAxis
+					dataKey="date"
+					tickFormatter={(date) =>
+						format(
+							toZonedTime(parse(date, 'dd/MM/yyyy', new Date()), 'UTC'),
+							'dd/MM'
+						)
+					}
+				/>{' '}
 				<YAxis domain={[minPrice, maxPrice]} />
-				<Tooltip />
-				<Legend formatter={(value) => value.replaceAll('_', ' ')} />
+				<Tooltip
+					formatter={(value, name) => {
+						return [
+							value,
+							name
+								.replace(/_/g, ' ')
+								.split(' ')
+								.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+								.join(' '),
+						];
+					}}
+				/>
+				<Legend
+					verticalAlign="bottom"
+					wrapperStyle={{ marginTop: 10 }}
+					formatter={(value) => {
+						return value
+							.split('_')
+							.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+							.join(' ');
+					}}
+				/>{' '}
 			</LineChart>
 			<p>
 				¹Preços são atualizados sempre que há uma mudança. Se o preço aparecer

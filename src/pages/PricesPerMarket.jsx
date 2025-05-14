@@ -5,7 +5,7 @@ import styles from './stylesheets/PricesPerMarket.module.css';
 const PricesPerMarket = () => {
 	return (
 		<div className={styles.container}>
-			<h2>
+			<h2 className={styles.description}>
 				Preços por mercado, englobando todos os tipos de produtos¹ e todas as
 				marcas².
 			</h2>

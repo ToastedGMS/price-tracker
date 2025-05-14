@@ -35,7 +35,9 @@ const LatestTable = ({ type }) => {
 				produto: item.id
 					.replace(/^(villefort|carrefour|apoio)_?/, '')
 					.replaceAll('_', ' ')
-					.replace(/^./, (str) => str.toUpperCase())
+					.split(' ')
+					.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+					.join(' ')
 					.trim(),
 				market: item.market,
 				price: last?.price ?? 'Sem preço',
