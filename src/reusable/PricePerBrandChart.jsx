@@ -121,6 +121,17 @@ const PricePerBrandChart = ({ type, brand }) => {
 								.join(' '),
 						];
 					}}
+					contentStyle={{
+						maxWidth: '60vw',
+						whiteSpace: 'normal',
+						wordBreak: 'break-word',
+						overflowWrap: 'break-word',
+					}}
+					itemStyle={{
+						whiteSpace: 'normal',
+						wordBreak: 'break-word',
+						overflowWrap: 'break-word',
+					}}
 				/>
 				<Legend
 					verticalAlign="bottom"
