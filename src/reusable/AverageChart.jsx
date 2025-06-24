@@ -29,7 +29,13 @@ const AverageChart = ({ type }) => {
 		return <div>Error: {error.message}</div>;
 	}
 
-	const averageData = data?.averagePrice || [];
+	function downsample(data, maxPoints) {
+		if (data.length <= maxPoints) return data;
+		const step = Math.floor(data.length / maxPoints);
+		return data.filter((_, index) => index % step === 0).slice(0, maxPoints);
+	}
+
+	const averageData = downsample(data?.averagePrice || [], 20);
 
 	return (
 		<div className={styles.chartWrapper}>
